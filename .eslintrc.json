@@ -1,0 +1,22 @@
+{
+  "extends": "airbnb-base",
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "plugins": ["json"],
+  "rules": {
+    "arrow-parens": ["error", "always"],
+    "import/no-extraneous-dependencies": "disable",
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": true,
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "quotes": ["error", "double", { "avoidEscape": true }]
+  }
+}
