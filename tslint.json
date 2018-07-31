@@ -9,6 +9,8 @@
   "rules": {
     "jsx-boolean-value": false,
     "jsx-no-multiline-js": false,
+    "interface-name": false,
+    "member-ordering": [ false ],
     "quotemark": [
       true,
       "double",

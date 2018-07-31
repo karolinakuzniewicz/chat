@@ -24,7 +24,8 @@
     "components/*": ["src/components/*"],
     "constants/*": ["src/constants/*"],
     "containers/*": ["src/containers/*"],
-    "reducers/*": ["src/reducers/*"]
+    "reducers/*": ["src/reducers/*"],
+    "types/*": ["src/types/*"]
   },
   "exclude": [
     "node_modules",

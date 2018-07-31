@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Sidebar = styled.div`
+export const Container = styled.div`
   border-right: 1px solid #3f3f3f;
   grid-area: sidebar;
   height: 100%;
