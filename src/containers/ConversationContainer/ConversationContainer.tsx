@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import Message, { MessageType } from "components/Message";
 
@@ -15,7 +16,7 @@ class ConversationContainer extends Component<ConversationContainerProps> {
   public render () {
     return(
       <Container>
-        {this.props.messages.map((message) => (
+        {this.props.messages && this.props.messages.map((message) => (
           <Message
             {...message}
             key={message.id}
@@ -26,4 +27,8 @@ class ConversationContainer extends Component<ConversationContainerProps> {
   }
 }
 
-export default ConversationContainer
+const mapStateToProps = (state) => ({
+  messages: state.messages,
+});
+
+export default connect(mapStateToProps)(ConversationContainer);

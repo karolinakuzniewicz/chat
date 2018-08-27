@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
+import { addMessage } from "actions";
 import { Container } from "./styles";
 
 interface NewMessageContainerProps {
-  dispatch: (param1: string, param2: string) => void;
+  readonly dispatch?: (param1: string, param2: string) => void;
 }
 
 class NewMessageContainer extends Component<NewMessageContainerProps> {
@@ -12,7 +14,7 @@ class NewMessageContainer extends Component<NewMessageContainerProps> {
   };
 
   private sendMessage = (event): void => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && this.props.dispatch) {
       this.props.dispatch(event.target.value, "Me");
     }
   }
@@ -30,4 +32,10 @@ class NewMessageContainer extends Component<NewMessageContainerProps> {
   }
 };
 
-export default NewMessageContainer;
+const mapDispatchToProps = dispatch => ({
+  onSendMessage: (message, author) => {
+    dispatch(addMessage(message, author))
+  }
+})
+
+export default connect(null, mapDispatchToProps)(NewMessageContainer);

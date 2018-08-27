@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import { User } from "types/user";
 
@@ -16,7 +17,7 @@ class Sidebar extends Component<SidebarProps> {
     return(
       <Container>
         <ul>
-          {this.props.users.map((user) => (
+          {this.props.users && this.props.users.map((user) => (
             <li key={user.id}>{user.name}</li>
           ))}
         </ul>
@@ -25,4 +26,8 @@ class Sidebar extends Component<SidebarProps> {
   }
 }
 
-export default Sidebar
+const mapStateToProps = (state) => ({
+  users: state.users,
+});
+
+export default connect(mapStateToProps)(Sidebar);
